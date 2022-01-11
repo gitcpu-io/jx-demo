@@ -14,7 +14,7 @@ func main() {
 }
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
-  fmt.Fprintf(w, "Hello - - - - Jenkins-X: %d", Random())
+  fmt.Fprintf(w, "Hello Jenkins-X: %d", Random())
 }
 
 func Random() int {
