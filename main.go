@@ -4,8 +4,21 @@ import (
   "fmt"
   "math/rand"
   "net/http"
+  "os"
   "time"
 )
+
+var commitOld = "latest"
+var commit = "latest"
+
+func init() {
+  if os.Getenv("COMMIT") != "" {
+    commit = os.Getenv("COMMIT")
+  }
+  if os.Getenv("COMMIT_OLD") != "" {
+    commitOld = os.Getenv("COMMIT_OLD")
+  }
+}
 
 func main() {
   http.HandleFunc("/", HelloServer)
@@ -14,7 +27,7 @@ func main() {
 }
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
-  fmt.Fprintf(w, "Hello ==== auto by tekton pipeline ==== Jenkins-X: %d", Random())
+  fmt.Fprintf(w, "<h1>Old's commit id: %s </h1><h1>PR's commit id: %s </h1><h1>Hello  Jenkins-X: %d</h1>", commitOld, commit, Random())
 }
 
 func Random() int {
