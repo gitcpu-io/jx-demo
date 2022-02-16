@@ -27,7 +27,7 @@ func main() {
 }
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
-  fmt.Fprintf(w, "<h1>Old's commit id: %s </h1><h1>PR's commit id: %s </h1><h1>Hello - Jenkins-X: %d</h1>", commitOld, commit, Random())
+  fmt.Fprintf(w, "<h1>Old's commit id: %s </h1><h1>PR's commit id: %s </h1><h1>Hello -- Jenkins-X: %d</h1>", commitOld, commit, Random())
 }
 
 func Random() int {
